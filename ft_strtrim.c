@@ -6,7 +6,7 @@
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 17:15:30 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/22 19:28:54 by ryin             ###   ########.fr       */
+/*   Updated: 2025/11/22 20:13:29 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -41,13 +41,19 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int	i;
 
 	start = 0;
-	while (in_set(s1[start++], set));
-	start--;
 	end = f_strlen(s1);
+	while (in_set(s1[start], set) && start++ <= end);
+	printf("Start= %d\n End= %d\n", start, end);
+	if (start == end)
+	{
+		printf("Start == end\n");
+		return (NULL);
+	}
+	start--;
 	while (in_set(s1[--end], set) && end);
 	if (end < start)
 		return (NULL);
-	out = (char *)malloc(end - start + 2);
+	out = malloc(end - start + 2);
 	if (!out)
 		return (NULL);
 	i = 0;
@@ -59,10 +65,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 int main(void)
 {
-	const char *mystr = "zxy_hello world_xyz";
+	const char *mystr = "zxy_hello worldz";
 	char *trimmed = ft_strtrim(mystr, "zxy_");
 	printf("OG: %s\nTrimmed: %s\n", mystr, trimmed);
-	const char *mystri = "zxy____";
+	const char *mystri = "zxy_";
 	char *trimd = ft_strtrim(mystri, "zxy_");
 	if (!trimd)
 		printf("Allocation failed\n");
