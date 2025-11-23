@@ -42,14 +42,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	start = 0;
 	end = f_strlen(s1);
-	while (in_set(s1[start], set) && start++ <= end);
-	printf("Start= %d\n End= %d\n", start, end);
+	while (in_set(s1[start], set) && start++ < end);
 	if (start == end)
 	{
-		printf("Start == end\n");
 		return (NULL);
 	}
-	start--;
 	while (in_set(s1[--end], set) && end);
 	if (end < start)
 		return (NULL);
@@ -70,7 +67,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 // 	const char *mystri = "zxy_";
 // 	char *trimd = ft_strtrim(mystri, "zxy_");
 // 	if (!trimd)
-// 		printf("Allocation failed\n");
+// 		printf("Allocation failed (EXPECTED)\n");
 // 	else
 // 		printf("OG: %s\nTrimmed: %s\n", mystri, trimd);
 // 	return (0);
