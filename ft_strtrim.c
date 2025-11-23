@@ -62,17 +62,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 	out[i] = 0;
 	return (out);
 }
-
-int main(void)
-{
-	const char *mystr = "zxy_hello worldz";
-	char *trimmed = ft_strtrim(mystr, "zxy_");
-	printf("OG: %s\nTrimmed: %s\n", mystr, trimmed);
-	const char *mystri = "zxy_";
-	char *trimd = ft_strtrim(mystri, "zxy_");
-	if (!trimd)
-		printf("Allocation failed\n");
-	else
-		printf("OG: %s\nTrimmed: %s\n", mystri, trimd);
-	return (0);
-}
+// int main(void)
+// {
+// 	const char *mystr = "zxy_hello worldz";
+// 	char *trimmed = ft_strtrim(mystr, "zxy_");
+// 	printf("OG: %s\nTrimmed: %s\n", mystr, trimmed);
+// 	const char *mystri = "zxy_";
+// 	char *trimd = ft_strtrim(mystri, "zxy_");
+// 	if (!trimd)
+// 		printf("Allocation failed\n");
+// 	else
+// 		printf("OG: %s\nTrimmed: %s\n", mystri, trimd);
+// 	return (0);
+// }
