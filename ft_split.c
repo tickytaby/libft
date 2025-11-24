@@ -1,82 +1,84 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/24 16:14:55 by ryin              #+#    #+#             */
+/*   Updated: 2025/11/24 16:21:02 by ryin             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include <stdlib.h>
 
-int     move_ptr(char const *s, char c, char command)
+int	move_ptr(char const *s, char c, char command)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (command == 'w')
-    {
-        while (s[i] != c && s[i])
-            i++;
-    }
-    else
-    {
-        while (s[i] == c && s[i])
-            i++;
-    }
-
-    return (i);
-
+	i = 0;
+	if (command == 'w')
+	{
+		while (s[i] != c && s[i])
+			i++;
+	}
+	else
+	{
+		while (s[i] == c && s[i])
+			i++;
+	}
+	return (i);
 }
 
-int     count_words(char const *s, char c)
+int	count_words(char const *s, char c)
 {
-    int count;
-    int i;
+	int	count;
+	int	i;
 
-    count = 0;
-    i = 0;
-    while (s[i])
-    {
-        if (s[i] != c)
-        {
-            count++;
-            // 'w' for word
-            i += move_ptr(&s[i], c, 'w');
-        }
-        if (s[i] == c)
-            // 's' for skip
-            i += move_ptr(&s[i], c, 's');
-    }
-
-    return (count);
+	count = 0;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] != c)
+		{
+			count++;
+			i += move_ptr(&s[i], c, 'w');
+		}
+		if (s[i] == c)
+			i += move_ptr(&s[i], c, 's');
+	}
+	return (count);
 }
 
-char    **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-    char    **out;
-    int     i;
-    int     size;
-    int     k;
-    int     tmp_size;
+	char	**out;
+	int		i;
+	int		size;
+	int		k;
+	int		tmp_size;
 
-    size = count_words(s, c);
-    if (!size)
-        return (NULL);
-    out = malloc(sizeof(char *) * size + 1);
-    if (!out)
-        return (NULL);
-    i = 0;
-    while (*s && i < size)
-    {
-        if (*s == c)
-            s++;
-        if (*s != c)
-        {
-            k = 0;
-            tmp_size = move_ptr(s, c, 'w');
-            out[i] = malloc(tmp_size);
-            if (!out[i])
-                return (NULL);
-            while (k < tmp_size) 
-                out[i][k++] = *s++;
-            out[i++][k] = 0;
-        }
-    }
-    out[i] = 0;
-
-    return (out);
+	size = count_words(s, c);
+	out = malloc(sizeof(char *) * size + 1);
+	if (!out || !size)
+		return (NULL);
+	i = 0;
+	while (*s && i < size)
+	{
+		if (*s == c)
+			s++;
+		if (*s != c)
+		{
+			k = 0;
+			tmp_size = move_ptr(s, c, 'w');
+			out[i] = malloc(tmp_size);
+			if (!out[i])
+				return (NULL);
+			while (k < tmp_size) 
+				out[i][k++] = *s++;
+			out[i++][k] = 0;
+		}
+	}
+	return (out[i] = 0, out);
 }
 // #include <stdio.h>
 // int main(void)

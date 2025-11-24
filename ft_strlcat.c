@@ -6,7 +6,7 @@
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 11:38:43 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/18 11:39:39 by ryin             ###   ########.fr       */
+/*   Updated: 2025/11/24 15:59:04 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,3 @@ size_t	ft_strlcat(char *dest, char *src, size_t size)
 	dest[i + j] = '\0';
 	return (i + slen);
 }
-

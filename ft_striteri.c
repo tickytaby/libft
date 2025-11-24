@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/18 13:51:20 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/24 15:16:31 by ryin             ###   ########.fr       */
+/*   Created: 2025/11/24 13:28:19 by ryin              #+#    #+#             */
+/*   Updated: 2025/11/24 15:54:13 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	unsigned char	*ptr;
-
-	ptr = (unsigned char *)s;
-	while (n--)
+	int		i;
+	i = 0;
+	while (s[i])
 	{
-		if (*ptr == c)
-			return ((void *)ptr);
-		ptr++;
+		f(i, &s[i]);
+		i++;
 	}
-	return (NULL);
 }

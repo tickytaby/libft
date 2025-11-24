@@ -6,19 +6,10 @@
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 15:41:39 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/17 15:47:02 by ryin             ###   ########.fr       */
+/*   Updated: 2025/11/24 14:23:32 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	ft_isalpha(int c)
-{
-	return ((c >= 65 && c <= 90) || (c >= 97 && c <= 122));
-}
-
-int	ft_isdigit(int c)
-{
-	return (c >= 48 && c <= 57);
-}
+#include "libft.h"
 
 int	ft_isalnum(int c)
 {

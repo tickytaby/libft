@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/18 13:51:20 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/24 15:16:31 by ryin             ###   ########.fr       */
+/*   Created: 2025/11/24 15:04:36 by ryin              #+#    #+#             */
+/*   Updated: 2025/11/24 15:59:27 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
+#include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	unsigned char	*ptr;
+	int	end;
 
-	ptr = (unsigned char *)s;
-	while (n--)
+	end = (int)ft_strlen(s);
+	while (end >= 0)
 	{
-		if (*ptr == c)
-			return ((void *)ptr);
-		ptr++;
+		if (s[end] == c)
+			return ((char *)&s[end]);
+		end--;
 	}
-	return (NULL);
+	return (0);
 }

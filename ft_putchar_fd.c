@@ -1,26 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/18 13:51:20 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/24 15:16:31 by ryin             ###   ########.fr       */
+/*   Created: 2025/11/24 13:31:54 by ryin              #+#    #+#             */
+/*   Updated: 2025/11/24 13:35:18 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
+#include <unistd.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_putchar_fd(char c, int fd)
 {
-	unsigned char	*ptr;
-
-	ptr = (unsigned char *)s;
-	while (n--)
-	{
-		if (*ptr == c)
-			return ((void *)ptr);
-		ptr++;
-	}
-	return (NULL);
+	write(fd, &c, 1);	
 }

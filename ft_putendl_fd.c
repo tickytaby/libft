@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/18 13:51:20 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/24 15:16:31 by ryin             ###   ########.fr       */
+/*   Created: 2025/11/24 13:45:13 by ryin              #+#    #+#             */
+/*   Updated: 2025/11/24 13:47:17 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
+#include <unistd.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_putendl_fd(char *s, int fd)
 {
-	unsigned char	*ptr;
+	char	nl;
 
-	ptr = (unsigned char *)s;
-	while (n--)
-	{
-		if (*ptr == c)
-			return ((void *)ptr);
-		ptr++;
-	}
-	return (NULL);
+	nl = '\n';
+	while (*s)
+		write(fd, s++, 1);
+	write(fd, &nl, 1);
 }
