@@ -6,13 +6,14 @@
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 13:28:19 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/24 15:54:13 by ryin             ###   ########.fr       */
+/*   Updated: 2025/11/24 18:05:02 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	int		i;
+
 	i = 0;
 	while (s[i])
 	{

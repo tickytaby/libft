@@ -6,7 +6,7 @@
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 14:05:21 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/19 14:17:07 by ryin             ###   ########.fr       */
+/*   Updated: 2025/11/24 18:04:11 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -33,7 +33,6 @@ size_t	make_copy(char *dest, char *src, size_t size)
 		i++;
 	}
 	dest[i] = '\0';
-
 	return (i);
 }
 

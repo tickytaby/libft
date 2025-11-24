@@ -6,137 +6,92 @@
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:14:55 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/24 16:21:02 by ryin             ###   ########.fr       */
+/*   Updated: 2025/11/24 17:45:18 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 #include <stdlib.h>
+#include <stdio.h>
 
-int	move_ptr(char const *s, char c, char command)
-{
-	int	i;
-
-	i = 0;
-	if (command == 'w')
-	{
-		while (s[i] != c && s[i])
-			i++;
-	}
-	else
-	{
-		while (s[i] == c && s[i])
-			i++;
-	}
-	return (i);
-}
-
-int	count_words(char const *s, char c)
+static int	word_count(char const *s, char c)
 {
 	int	count;
-	int	i;
+	int	in_word;
 
 	count = 0;
-	i = 0;
-	while (s[i])
+	in_word = 0;
+	while (*s)
 	{
-		if (s[i] != c)
+		if (*s != c && !in_word)
 		{
+			in_word = 1;
 			count++;
-			i += move_ptr(&s[i], c, 'w');
 		}
-		if (s[i] == c)
-			i += move_ptr(&s[i], c, 's');
+		else if (*s == c)
+			in_word = 0;
+		s++;
 	}
 	return (count);
 }
 
+static int	word_len(char const *s, char c)
+{
+	int	len;
+
+	len = 0;
+	while (s[len] && s[len] != c)
+		len++;
+	return (len);
+}
+
+static char	**free_all(char **tab, int i)
+{
+	while (i >= 0)
+	{
+		free(tab[i]);
+		i--;
+	}
+	free(tab);
+	return (NULL);
+}
+
+static int	fill_tab(char **tab, char const *s, char c, int words)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	while (i < words)
+	{
+		while (*s && *s == c)
+			s++;
+		len = word_len(s, c);
+		tab[i] = (char *)malloc(sizeof(char) * (len + 1));
+		if (!tab[i])
+		{
+			free_all(tab, i - 1);
+			return (0);
+		}
+		ft_strlcpy(tab[i], s, len + 1);
+		s += len;
+		i++;
+	}
+	tab[i] = NULL;
+	return (1);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	char	**out;
-	int		i;
-	int		size;
-	int		k;
-	int		tmp_size;
+	char	**tab;
+	int		words;
 
-	size = count_words(s, c);
-	out = malloc(sizeof(char *) * size + 1);
-	if (!out || !size)
+	if (!s)
 		return (NULL);
-	i = 0;
-	while (*s && i < size)
-	{
-		if (*s == c)
-			s++;
-		if (*s != c)
-		{
-			k = 0;
-			tmp_size = move_ptr(s, c, 'w');
-			out[i] = malloc(tmp_size);
-			if (!out[i])
-				return (NULL);
-			while (k < tmp_size) 
-				out[i][k++] = *s++;
-			out[i++][k] = 0;
-		}
-	}
-	return (out[i] = 0, out);
+	words = word_count(s, c);
+	tab = (char **)malloc(sizeof(char *) * (words + 1));
+	if (!tab)
+		return (NULL);
+	if (!fill_tab(tab, s, c, words))
+		return (NULL);
+	return (tab);
 }
-// #include <stdio.h>
-// int main(void)
-// {
-//     int i;
-//     const char *str = "A B C D E F G";
-//     const char *str1 = "Hello world ";
-//     printf("%s has %d words\n", str1, count_words(str1, ' '));
-//     const char *str2 = "";
-//     const char *str3 = "      ";
-//
-//     char **out = ft_split(str, 'D');
-//     if (!out)
-//         return (printf("Allocation failed\n"), 0);
-//     i = 0;
-//     while (out[i])
-//     {
-//         printf("%d: %s | ", i, out[i]);
-//         i++;
-//     }
-//     printf("\n==================================\n");
-//
-//     char **out1 = ft_split(str1, ' ');
-//     if (!out1)
-//         return (printf("Allocation failed\n"), 0);
-//     i = 0;
-//     while (out1[i])
-//     {
-//         printf("%d: %s | ", i, out1[i]);
-//         i++;
-//     }
-//     printf("\n==================================\n");
-//
-//     char **out2 = ft_split(str2, ' ');
-//     if (!out2)
-//     {
-//         printf("OUT2: Allocation failed (EXPECTED)");
-//         printf("\n==================================\n");
-//     }
-//     else
-//     {
-//         i = 0;
-//         while (out2[i])
-//             printf("%s\n", out2[i++]);
-//     }
-//
-//     char **out3 = ft_split(str3, ' ');
-//     if (!out3)
-//     {
-//         printf("OUT3: Allocation failed (EXPECTED)");
-//         printf("\n==================================\n");
-//     }
-//     else
-//     {
-//         i = 0;
-//         while (out3[i])
-//             printf("%s\n", out3[i++]);
-//     }
-//
-//     return 0;
-// }

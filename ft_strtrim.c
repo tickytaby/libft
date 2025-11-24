@@ -6,7 +6,7 @@
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 17:15:30 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/22 20:13:29 by ryin             ###   ########.fr       */
+/*   Updated: 2025/11/24 18:00:20 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -36,18 +36,18 @@ int	f_strlen(const char *s)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*out;
-	int	start;
-	int	end;
-	int	i;
+	int		start;
+	int		end;
+	int		i;
 
 	start = 0;
 	end = f_strlen(s1);
-	while (in_set(s1[start], set) && start++ < end);
-	if (start == end)
-	{
+	while (in_set(s1[start], set) && start < end)
+		start++;
+	if (start == --end)
 		return (NULL);
-	}
-	while (in_set(s1[--end], set) && end);
+	while (in_set(s1[end], set) && end)
+		end--;
 	if (end < start)
 		return (NULL);
 	out = malloc(end - start + 2);
@@ -56,8 +56,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	while (start <= end)
 		out[i++] = s1[start++];
-	out[i] = 0;
-	return (out);
+	return (out[i] = 0, out);
 }
 // int main(void)
 // {
