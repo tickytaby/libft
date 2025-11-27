@@ -6,7 +6,7 @@
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 17:50:45 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/25 18:58:35 by ryin             ###   ########.fr       */
+/*   Updated: 2025/11/27 11:59:10 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *n);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 #endif
