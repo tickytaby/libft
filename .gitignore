@@ -4,3 +4,4 @@ main.c
 *.a
 *.o
 *.swp
+*.gch
