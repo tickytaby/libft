@@ -6,7 +6,7 @@
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:50:37 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/24 12:47:50 by ryin             ###   ########.fr       */
+/*   Updated: 2025/11/27 18:53:34 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -61,7 +61,7 @@ char	*ft_itoa(int n)
 
 	nbr = (long)n;
 	size = get_size(n);
-	out = alloc(size + 1);
+	out = alloc(size);
 	if (!out)
 		return (NULL);
 	i = 0;

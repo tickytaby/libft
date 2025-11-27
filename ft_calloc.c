@@ -6,7 +6,7 @@
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 13:53:11 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/24 18:03:26 by ryin             ###   ########.fr       */
+/*   Updated: 2025/11/27 17:52:37 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -27,7 +27,12 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*res;
 
-	if ((int)(nmemb * size) > 2147483647 || (int)(nmemb * size) == 0)
+	if (nmemb * size == 0)
+	{
+		res = malloc(nmemb * size);
+		return (set(res, 0, 0));
+	}
+	if ((int)nmemb < 0 || (int)size < 0 || (int)(nmemb * size) < 0)
 		return (NULL);
 	res = malloc(nmemb * size);
 	if (!res)

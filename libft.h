@@ -4,10 +4,7 @@
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/22 17:50:45 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/27 11:59:10 by ryin             ###   ########.fr       */
-/*                                                                            */
+/*                                                +#+#+#+#+#+   +#+           */ /*   Created: 2025/11/22 17:50:45 by ryin              #+#    #+#             */ /*   Updated: 2025/11/27 12:11:26 by ryin             ###   ########.fr       */ /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
@@ -63,5 +60,6 @@ void	ft_lstadd_back(t_list **lst, t_list *n);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif
