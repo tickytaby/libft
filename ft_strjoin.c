@@ -6,29 +6,20 @@
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 14:44:31 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/24 15:57:25 by ryin             ###   ########.fr       */
+/*   Updated: 2025/12/02 07:33:49 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
 #include <stddef.h>
-
-int	l(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*out;
-	int		i;
-	int		tot;
+	size_t	i;
+	size_t	tot;
 
-	tot = l(s1) + l(s2);
+	tot = ft_strlen(s1) + ft_strlen(s2);
 	out = (char *)malloc(tot + 1);
 	if (!out)
 		return (NULL);

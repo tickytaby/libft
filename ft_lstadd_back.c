@@ -6,7 +6,7 @@
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:11:00 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/25 16:22:06 by ryin             ###   ########.fr       */
+/*   Updated: 2025/12/02 08:29:04 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -15,6 +15,13 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last;
 
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
 	last = ft_lstlast(*lst);
 	last->next = new;
 }

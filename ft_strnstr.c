@@ -6,7 +6,7 @@
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:59:43 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/27 17:42:29 by ryin             ###   ########.fr       */
+/*   Updated: 2025/11/28 17:03:33 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -44,7 +44,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 // #include <stdio.h>
 // int main(void)
 // {
-// 	char hay[30] = "aaabcabcd";
-// 	printf("EXP: 1, ACT: %s\n", ft_strnstr(hay, "cd", 8));
+// 	char hay[30] = "aaabcdabcdn";
+// 	printf("EXP: 1, ACT: %s\n", ft_strnstr(hay, "cdn", 30));
 // 	return 0;
 // }

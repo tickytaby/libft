@@ -6,13 +6,14 @@
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 13:28:19 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/24 18:05:02 by ryin             ###   ########.fr       */
+/*   Updated: 2025/12/02 07:36:32 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stddef.h>
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	int		i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])

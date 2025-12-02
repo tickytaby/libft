@@ -6,10 +6,10 @@
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 13:38:14 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/24 13:44:17 by ryin             ###   ########.fr       */
+/*   Updated: 2025/12/02 07:37:20 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-void	ft_putchar_fd(char s, int fd);
+#include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

@@ -6,7 +6,7 @@
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 10:02:26 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/24 18:00:49 by ryin             ###   ########.fr       */
+/*   Updated: 2025/12/02 06:59:03 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -17,5 +17,5 @@ void	ft_bzero(void *s, size_t n)
 
 	ptr = (unsigned char *)s;
 	while (n--)
-		*ptr++ = '\0';
+		*ptr++ = 0;
 }

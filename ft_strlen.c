@@ -6,14 +6,14 @@
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:38:12 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/24 12:59:58 by ryin             ###   ########.fr       */
+/*   Updated: 2025/12/02 06:37:30 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
 
-size_t	ft_strlen(char *s)
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])

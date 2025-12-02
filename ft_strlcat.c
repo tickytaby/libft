@@ -6,13 +6,13 @@
 /*   By: ryin <ryin@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 11:38:43 by ryin              #+#    #+#             */
-/*   Updated: 2025/11/24 15:59:04 by ryin             ###   ########.fr       */
+/*   Updated: 2025/12/02 08:35:04 by ryin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-size_t	ft_strlcat(char *dest, char *src, size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	j;
